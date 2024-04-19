@@ -1,5 +1,5 @@
 # NER-Net
-Official repository for the CVPR 2024 paper, "Seeing Motion at Nighttime with an Event Camera”
+Official repository for the CVPR 2024 paper, "[Seeing Motion at Nighttime with an Event Camera](https://arxiv.org/abs/2404.11884)”
 
 Coming soon!
 
