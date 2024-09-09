@@ -10,7 +10,7 @@ Official repository for the CVPR 2024 paper, "[Seeing Motion at Nighttime with a
 The publicly available RLED dataset includes 100 training sequences (about 171GB) and 12 test sequences (about 21GB), including 5 scenes such as city, suburbs, town, valley, and village. To reduce storage and transmission costs, all data is stored in .h5 format, and the images have been converted to grayscale.
 We offer both Baidu Cloud Drive and Microsoft OneDrive for data download:
 
-[Baidu Disk](https://pan.baidu.com/share/init?surl=h-iI5H_5DUIc2dQKvGXUkA=cknc) (code: `cknc`)
+[Baidu Disk](https://pan.baidu.com/share/init?surl=h-iI5H_5DUIc2dQKvGXUkA) (code: `cknc`)
 
 [OneDrive](https://1drv.ms/f/c/33d779a79b43175a/EvwW6jKyq_dOj7aP0IjXqJgBKNdz6yRvE7m0GRA-0ZPpyw?e=yUbQed)
 
