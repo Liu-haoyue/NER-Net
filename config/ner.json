@@ -1,0 +1,113 @@
+{
+    "name": "reconstruction",
+    "n_gpu": 1,
+    "arch": {
+        "type": "RepresentationRecurrent",
+        "use_flow_net": false,
+        "args": {
+            "unet_kwargs": {
+                "num_bins": 5,
+                "skip_type": "sum",
+                "recurrent_network": "NIAM_STcell_GCB",
+                "recurrent_block_type": "",
+                "num_encoders": 3,
+                "base_num_channels": 32,
+                "num_residual_blocks": 2,
+                "use_upsample_conv": true,
+                "final_activation": "",
+                "norm": "",
+                "crop_size": 160,
+                "mlp_layers": [1, 50, 50, 50, 1],
+                "use_cnn_representation": true,
+                "normalize": false,
+                "combine_voxel": false,
+                "RepCNN_kernel_size": 3,
+                "RepCNN_padding": 1,
+                "RepCNN_channel": 64,
+                "RepCNN_num_layers": 1
+            }
+        }
+    },
+    "data_loader": {
+        "type": "MemMapDataLoader_evs",
+        "args": {
+            "data_file": "./data/train_memmap.txt",
+            "batch_size": 1,
+            "shuffle": true,
+            "num_workers": 0,
+            "pin_memory": true,
+            "sequence_kwargs": {
+                "sequence_length": 40,
+                "dataset_type": "MemMapDataset",
+                "proba_pause_when_running": 0.0,
+                "proba_pause_when_paused": 0.0,
+                "normalize_image": false,
+                "dataset_kwargs": {
+                    "transforms": {
+                        "RandomCrop": {
+                            "size": 160
+                        },
+                        "RandomFlip": {}
+                    },
+                    "num_bins": 5
+                }
+            }
+        }
+    },
+    "valid_data_loader": {
+        "type": "MemMapDataLoader_evs",
+        "args": {
+            "data_file": "./data/val_memmap.txt",
+            "batch_size": 1,
+            "shuffle": false,
+            "num_workers": 0,
+            "pin_memory": true,
+            "sequence_kwargs": {
+                "sequence_length": 1,
+                "dataset_type": "MemMapDataset",
+                "normalize_image": true,
+                "dataset_kwargs": {
+                    "max_length": 40,
+                    "transforms": {
+                        "CenterCrop": {
+                            "size": 160
+                        }
+                    },
+                    "num_bins": 5,
+                    "combined_voxel_channels": false
+                }
+            }
+        }
+    },
+    "loss_ftns": {
+        "perceptual_loss": {
+            "weight": 1.0,
+            "net": "vgg"
+        }
+    },
+    "optimizer": {
+        "type": "Adam",
+        "args": {
+            "lr": 0.0001,
+            "weight_decay": 0,
+            "amsgrad": true
+        }
+    },
+    "lr_scheduler": {
+        "type": "StepLR",
+        "args": {
+            "step_size": 50,
+            "gamma": 1.0
+        }
+    },
+    "trainer": {
+        "epochs": 200,
+        "save_dir": "checkpoints/ner",
+        "save_period": 20,
+        "verbosity": 2,
+        "monitor": "min loss",
+        "num_previews": 4,
+        "val_num_previews": 8,
+        "tensorboard": true
+    }
+}
