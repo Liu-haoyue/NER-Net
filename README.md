@@ -74,7 +74,7 @@ Note: Higher versions of NumPy may cause errors in the ETS algorithm. It is reco
 
 ```
 conda create -n ner python=3.8
-conda activate pips2
+conda activate ner
 pip install -r requirements.txt
 conda install pytorch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2 cudatoolkit=10.2 -c pytorch
 ```
