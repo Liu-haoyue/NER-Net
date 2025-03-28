@@ -84,8 +84,8 @@ Download the pretrained model from [Baidu Disk](https://pan.baidu.com/share/init
 
 Download RLED dataset to any /data_path.
 
-Run the test
-Set `--save_gt` and `--save_evframe` to save the GT frames and event frames.
+Run the test (Set `--save_gt` and `--save_evframe` to save the GT frames and event frames).
+
 ```
 python inference.py --checkpoint_path pretrained --model_name ner.pth --dataset_path /data_path/RLED/test --output_folder /data_path/RLED/results --save_gt --save_evframe
 ```
@@ -104,7 +104,6 @@ After completing the data conversion, you can adjust the training settings by mo
 python train.py --config config/ner.json --device 0 --representation_model pretrained/representation_model/letc.pth --frozen_representation
 ```
 
-
 ## Citation
 
 Please cite us if our work is useful for your research, thank you!
@@ -116,5 +115,12 @@ Please cite us if our work is useful for your research, thank you!
   booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
   pages={25648--25658},
   year={2024}
+}
+@article{liu2025ner,
+  title={NER-Net+: Seeing Motion at Nighttime with an Event Camera},
+  author={Liu, Haoyue and Xu, Jinghan and Peng, Shihan and Chang, Yi and Zhou, Hanyu and Duan, Yuxing and Zhu, Lin and Tian, Yonghong and Yan, Luxin},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2025},
+  publisher={IEEE}
 }
 ```
