@@ -67,7 +67,7 @@ The structure of the h5 file is the following:
   - t0: the timestamp of the first event.
   - tk: the timestamp of the last event.
 
-## Nighttime Event Reconstruction network (NER-Net)
+## Nighttime Event Reconstruction Network (NER-Net)
 
 ### Requirements
 Note: Higher versions of NumPy may cause errors in the ETS algorithm. It is recommended to use `numpy==1.20.3`.
